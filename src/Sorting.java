@@ -3,12 +3,12 @@ import java.util.Collections;
 
 public class Sorting
 {
-    public static StringBuilder sortNumbers(StringBuilder text)
+    public static StringBuilder sortNumbers(StringBuilder text) // Функція сортування
     {
         ArrayList<Double> nums = new ArrayList<>();
         ArrayList<Integer> positions = new ArrayList<>();
 
-        for (int i = 0; i < text.length(); i++)
+        for (int i = 0; i < text.length(); i++) // Знаходження чисел
         {
             StringBuilder temp = new StringBuilder();
             char currentChar = text.charAt(i);
@@ -30,10 +30,11 @@ public class Sorting
             }
         }
 
+        // Сортування списків
         Collections.sort(nums);
         Collections.sort(positions);
 
-        for (int i = 0; i < text.length(); i++)
+        for (int i = 0; i < text.length(); i++) // Видалення чисел
         {
             char currentChar = text.charAt(i);
             int start = i;
@@ -50,7 +51,7 @@ public class Sorting
             text.delete(start, end);
         }
 
-        for (int i = 0; i < positions.size(); i++)
+        for (int i = 0; i < positions.size(); i++) // Вставлення чисел
         {
             int j = nums.get(i).toString().length() - 3;
             text.insert(positions.get(i)-j, nums.get(i).toString());
